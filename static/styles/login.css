@@ -1,0 +1,57 @@
+body{
+    background: url("../images/login.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+.container{
+    display: flex;
+    height: 96vh;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: row;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 1.5rem;
+}
+.login-img>img{
+    height: 70vh;
+    width: 30vw;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    width: 30vw;
+    height: 70.7vh;
+    background: url("../images/right-img.png");
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+input{
+    border-radius: 1rem;
+    height: 1.3rem;
+    width: 17rem;
+}
+.submit-button{
+    display: grid;
+    margin:0 auto;
+    width: 140px;
+    border-radius: 10px;
+    background: #03A7A6;
+    color: white;
+}
+#submit{
+    display: grid;
+    margin: 0 auto;
+    width: 140px;
+    border-radius: 10px;
+    background: #03A7A6;
+    color: white;
+}
