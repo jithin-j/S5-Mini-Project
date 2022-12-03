@@ -13,7 +13,10 @@
 <body>
     <div class="container">
         <div class="login-img">
-            <img src="../static/images/login-img.png" alt="">
+            <!-- <img src="../static/images/login-img.png" alt=""> -->
+            <video id="videoBG" style="width: 25rem;" autoplay muted loop>
+                <source src="{{ url_for('static', filename='videos/login-video.mp4') }}" type="video/mp4">
+            </video>
         </div>
         <div class="login-form">
             <p style="font-size: 5rem;">LOGIN</p>

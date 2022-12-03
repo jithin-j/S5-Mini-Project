@@ -20,6 +20,19 @@ def save_picture(form_picture):
 
     return picture_fn
 
+def save_blog_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/blog-pics', picture_fn)
+
+    output_size = (350, 350)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn
+
 app.app_context().push()
 
 login_manager = LoginManager()
@@ -94,12 +107,16 @@ def account():
 def new_post():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(title=form.title.data, content = form.content.data, author=current_user)
+        if form.picture.data:
+            blog_image = save_blog_picture(form.picture.data)
+        else:
+            blog_image = 'default-blog.png'
+        post = Post(title=form.title.data, content = form.content.data, author=current_user, blog_image = blog_image)
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect(url_for('dashboard'))
-    return render_template('create_post.html', title='New Post', form = form, legend='Update Post')
+    return render_template('create_post.html', title='New Post', form = form, legend='Create Post')
 
 @app.route("/post/<int:post_id>")
 def post(post_id):
@@ -114,6 +131,9 @@ def update_post(post_id):
         abort(403)
     form = PostForm()
     if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_blog_picture(form.picture.data)
+            post.blog_image = picture_file
         post.title = form.title.data
         post.content = form.content.data
         db.session.commit()
