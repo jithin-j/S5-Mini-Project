@@ -5,9 +5,14 @@ body {
     animation: gradient-animation 12s ease infinite;
     background-repeat: no-repeat;
     color: #333333;
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
-
+.main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    top: 1;
+}
 h1,
 h2,
 h3,
@@ -17,22 +22,6 @@ h6 {
     color: #444444;
 }
 
-.bg-steel {
-    background-color: #0480c2;
-}
-
-.site-header .navbar-nav .nav-link {
-    color: #cbd5db;
-}
-
-.site-header .navbar-nav .nav-link:hover {
-    color: #ffffff;
-}
-
-.site-header .navbar-nav .nav-link.active {
-    font-weight: 500;
-}
-
 .content-section {
     background: #ffffff;
     padding: 10px 20px;
@@ -40,6 +29,7 @@ h6 {
     border-radius: 3px;
     margin-bottom: 20px;
     border-radius: 1rem;
+    width: 50rem;
 }
 
 .article-title {
@@ -92,6 +82,49 @@ a.article-title:hover {
 
 .account-heading {
     font-size: 2.5rem;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 100vh;
+    justify-content: center;
+    gap: 3rem;
+    left: 0;
+    position: fixed;
+    background: #fff;
+    top: 0;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+}
+#web-title{
+    top: 0;
+    position: absolute;
+    margin-top: 2rem;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 4rem;
+}
+
+.link>a:hover{
+    text-decoration: underline;
+}
+
+.navbar>a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.link>a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 1rem;
 }
 
 @keyframes gradient-animation {
